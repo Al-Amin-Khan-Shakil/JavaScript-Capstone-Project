@@ -16,6 +16,7 @@ const displayList = async () => {
     const img = document.createElement('img');
     img.src = episode.image.medium;
     img.alt = 'episode banner';
+    img.classList.add('image');
     imgContainer.appendChild(img);
 
     const container = document.createElement('div');
