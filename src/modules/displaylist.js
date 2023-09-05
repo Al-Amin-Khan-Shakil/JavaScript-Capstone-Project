@@ -44,6 +44,12 @@ const displayList = async () => {
 
     contentContainer.appendChild(list);
   });
+
+  const listItems = contentContainer.querySelectorAll('li');
+  const menuList = document.querySelectorAll('.menu-list');
+  const listCounter = document.createElement('span');
+  listCounter.textContent = `(${listItems.length})`;
+  menuList[0].appendChild(listCounter);
 };
 
 export default displayList;
