@@ -1,3 +1,5 @@
+import buttonEventListener from './popup.js';
+
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
   const sourceURL = 'https://api.tvmaze.com/seasons/1/episodes';
@@ -7,8 +9,8 @@ const displayList = async () => {
 
   episodeData.forEach((episode) => {
     const list = document.createElement('li');
-    list.id = episode.id;
-
+     list.id = episode.id;
+     
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
     list.appendChild(imgContainer);
@@ -36,21 +38,29 @@ const displayList = async () => {
     const commentBTN = document.createElement('button');
     commentBTN.classList.add('comment-button');
     commentBTN.textContent = 'Comments';
+    commentBTN.type="button";
     list.appendChild(commentBTN);
 
     const reservationsBTN = document.createElement('button');
     reservationsBTN.classList.add('reservations-button');
     reservationsBTN.textContent = 'Reservations';
+    // reservationsBTN.id = episode.id;
     list.appendChild(reservationsBTN);
 
     contentContainer.appendChild(list);
   });
-
+  debugger;
   const listItems = contentContainer.querySelectorAll('li');
   const menuList = document.querySelectorAll('.menu-list');
+  const openPopButtons = document.querySelectorAll('.comment-button');
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
+  // buttonEventListener();
+  openPopButtons.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      buttonEventListener(e.target.parentElement.id);
+});});
 };
 
 export default displayList;
