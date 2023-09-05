@@ -160,7 +160,9 @@ body {
   font-size: 2rem;
 }
 
-.comment-button {
+.comment-button ,
+.reservations-button,
+.btn{
   font-weight: 600;
   font-size: 1rem;
   color: #fff;
@@ -171,13 +173,92 @@ body {
   border-radius: 4px;
 }
 
-.reservations-button {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #fff;
-  background: #f13f27;
-  padding: 6px 10px;
-  width: fit-content;
-  border: none;
-  border-radius: 4px;
+
+
+/*--------------Popup-------------  */
+#popup {
+  position: fixed;
+  z-index: 1;
+  opacity: 0;
+  width: 75%;
+  top: 0;
+  left: 12.5%;
+  right: 0;
+  bottom: 0;
+  background: #1a2236e9;
+  backdrop-filter: blur(5px);
+  pointer-events: none;
+  overflow-y: auto;
+}
+
+#popup.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  width: 70%;
+  height: 90%;
+  position: fixed;
+  padding: 3%;
+  top: 50%;
+  left: 38%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+  z-index: 1;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.modal.active {
+  transform: translate(-33%, -50%) scale(1);
+}
+
+.modal-work {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.item-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.item-name{
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin: 0.2rem;
+}
+.info1{
+  text-align: center;
+  margin: 0.2rem;
+}
+.info2{
+  display: flex;
+  justify-content: space-around;
+  margin: 0.2rem;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  margin: 0.3rem;
+}
+.name-,
+.message{
+  width: 100%;
+  padding: 7px;
+  margin: 0.2rem;
+}
+
+.Imgname{
+  display: block;
+  width: 100%;
+  text-align: end;
+}
+.data-close-button{
+    cursor: pointer;
+  font-size: 30px;
+  font-weight: 500;
 }
