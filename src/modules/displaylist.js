@@ -1,4 +1,5 @@
 import buttonEventListener from './popup.js';
+import { getLike } from './Likes.js';
 
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
@@ -32,7 +33,7 @@ const displayList = async () => {
 
     const like = document.createElement('div');
     like.classList.add('like');
-    like.innerHTML = '&hearts;';
+    like.innerHTML = `&hearts; ${getLike(episode.id)}`;
     container.appendChild(like);
 
     const commentBTN = document.createElement('button');
