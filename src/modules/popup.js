@@ -24,8 +24,8 @@ function createModal(item) {
  </ul>
  <form>
         <input type="text" name="name" class="username"  placeholder="Your name" required/>
-        <textarea  name="message" class="message" rows="6" maxlength="50" placeholder="Enter your commet here..." required></textarea>
-        <button type="submit" class="btn add-commet" id="${item.id}">Commet</button>
+        <textarea  name="message" class="message" rows="6" maxlength="50" placeholder="Enter your comment here..." required></textarea>
+        <button type="submit" class="btn add-commet" id="${item.id}">Comment</button>
 </form>
 </div>
 `;
