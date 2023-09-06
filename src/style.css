@@ -147,6 +147,7 @@ body {
 .title-like-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .episode-title {
@@ -155,9 +156,22 @@ body {
   color: #fff;
 }
 
+.sub-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 6px;
+}
+
 .like {
-  color: #f13f27;
+  color: #fff;
   font-size: 2rem;
+}
+
+.like-count {
+  color: #f13f27;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .comment-button,

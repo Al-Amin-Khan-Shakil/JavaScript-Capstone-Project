@@ -1,5 +1,5 @@
 import buttonEventListener from './popup.js';
-import { getLike, addLike } from './Likes.js';
+import { addLike } from './Likes.js';
 
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
@@ -31,10 +31,20 @@ const displayList = async () => {
     title.textContent = `${episode.name}`;
     container.appendChild(title);
 
+    const subContainer = document.createElement('div');
+    subContainer.classList.add('sub-container');
+    container.appendChild(subContainer);
+
     const like = document.createElement('div');
     like.classList.add('like');
-    like.innerHTML = `&hearts; ${getLike(episode.id)}`;
-    container.appendChild(like);
+    like.id = episode.id;
+    like.innerHTML = '&hearts;';
+    subContainer.appendChild(like);
+
+    const likeCount = document.createElement('div');
+    likeCount.classList.add('like-count');
+    likeCount.innerHTML = 0;
+    subContainer.appendChild(likeCount);
 
     const commentBTN = document.createElement('button');
     commentBTN.classList.add('comment-button');
@@ -65,8 +75,15 @@ const displayList = async () => {
   });
 
   likeEle.forEach((button) => {
-    button.addEventListener('click', (e) => {
-      addLike(e.target.parentElement.parentElement.id);
+    button.addEventListener('click', async (e) => {
+      const likeID = e.target.id;
+      const likeCount = e.target.nextElementSibling;
+      const res = await addLike(likeID);
+      const value = parseInt(likeCount.textContent, 10);
+      e.target.style.color = '#f13f27';
+      if (res.status === 201) {
+        likeCount.innerHTML = value + 1;
+      }
     });
   });
 };
