@@ -1,12 +1,16 @@
-const apiId = 'MEyKHZs5GQJjgTbCoZJe';// 3P9ifz6JhS0AXCdTzxPo
+const apiId = 'Bz8sde1lr8WmKzCrHh97';
 const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiId}/comments`;
 
 //* ----------------comment API-Fetch Function-----------//
+const commentData = async (itemId) => {
+  const res = await fetch(`${url}?item_id=${itemId}`);
+  if (!res.ok) throw new Error('Cannot get comment for id ', itemId);
+  const data = await res.json();
+  return data;
+};
 const fetchcomment = async (itemId) => {
   try {
-    const res = await fetch(`${url}?item_id=${itemId}`);
-    if (!res.ok) throw new Error('Cannot get comment for id ', itemId);
-    const data = await res.json();
+    const data = await commentData(itemId);
     const list = document.querySelector('.comment-list');
     list.innerHTML = '';
     data.forEach((item) => {
@@ -18,7 +22,7 @@ const fetchcomment = async (itemId) => {
       document.querySelector('.comment-list').appendChild(commentEl);
     });
     document.querySelector('.comments-title').innerHTML = `comment ( ${data.length} )`;
-    return res;
+    return data;
   } catch (err) {
     return err;
   }
