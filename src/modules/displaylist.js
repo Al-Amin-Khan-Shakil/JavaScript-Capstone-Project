@@ -64,7 +64,6 @@ const displayList = async () => {
   const menuList = document.querySelectorAll('.menu-list');
   const likeEle = document.querySelectorAll('.like');
   const openPopButtons = document.querySelectorAll('.comment-button');
-  const likeEl=document.querySelectorAll('.like');
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
