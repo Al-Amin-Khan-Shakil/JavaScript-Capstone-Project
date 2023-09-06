@@ -1,6 +1,5 @@
 const addLike = async (index) => {
   const scoreURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NYnW2fT7jUZBAaXgUPX8/likes/';
-
   try {
     const response = await fetch(scoreURL, {
       method: 'POST',
@@ -11,7 +10,6 @@ const addLike = async (index) => {
         item_id: index,
       }),
     });
-
     const likedata = await response.json();
     return likedata;
   } catch (error) {
@@ -19,7 +17,7 @@ const addLike = async (index) => {
   }
 };
 
-const getLike = async (id) => {
+const getLike = async () => {
   const scoreURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/NYnW2fT7jUZBAaXgUPX8/likes/';
 
   const response = await fetch(scoreURL);

@@ -1,5 +1,5 @@
 import buttonEventListener from './popup.js';
-import { getLike } from './Likes.js';
+import { getLike,addLike } from './Likes.js';
 
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
@@ -33,7 +33,8 @@ const displayList = async () => {
 
     const like = document.createElement('div');
     like.classList.add('like');
-    like.innerHTML = `&hearts; ${getLike(episode.id)}`;
+    like.innerHTML = `&hearts;`
+    // ${getLike(episode.id)}`;
     container.appendChild(like);
 
     const commentBTN = document.createElement('button');
@@ -53,12 +54,19 @@ const displayList = async () => {
   const listItems = contentContainer.querySelectorAll('li');
   const menuList = document.querySelectorAll('.menu-list');
   const openPopButtons = document.querySelectorAll('.comment-button');
+  const likeEl=document.querySelectorAll('.like');
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
   openPopButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
       buttonEventListener(e.target.parentElement.id);
+    });
+  });
+  likeEl.forEach((button)=>{
+    button.addEventListener('click',(e)=>{
+      // console.log(e.target.parentElement.parentElement.id);
+      addLike(e.target.parentElement.parentElement.id);
     });
   });
 };
