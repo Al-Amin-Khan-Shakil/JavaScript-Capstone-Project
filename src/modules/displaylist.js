@@ -10,7 +10,7 @@ const displayList = async () => {
   episodeData.forEach((episode) => {
     const list = document.createElement('li');
      list.id = episode.id;
-     
+
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
     list.appendChild(imgContainer);
@@ -49,17 +49,15 @@ const displayList = async () => {
 
     contentContainer.appendChild(list);
   });
-  debugger;
   const listItems = contentContainer.querySelectorAll('li');
   const menuList = document.querySelectorAll('.menu-list');
   const openPopButtons = document.querySelectorAll('.comment-button');
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
-  // buttonEventListener();
-  openPopButtons.forEach((button) => {
+   openPopButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
-      buttonEventListener(e.target.parentElement.id);
+          buttonEventListener(e.target.parentElement.id);
 });});
 };
 
