@@ -9,7 +9,7 @@ const displayList = async () => {
 
   episodeData.forEach((episode) => {
     const list = document.createElement('li');
-     list.id = episode.id;
+    list.id = episode.id;
 
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
@@ -38,7 +38,7 @@ const displayList = async () => {
     const commentBTN = document.createElement('button');
     commentBTN.classList.add('comment-button');
     commentBTN.textContent = 'Comments';
-    commentBTN.type="button";
+    commentBTN.type = 'button';
     list.appendChild(commentBTN);
 
     const reservationsBTN = document.createElement('button');
@@ -55,10 +55,11 @@ const displayList = async () => {
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
-   openPopButtons.forEach((button) => {
+  openPopButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
-          buttonEventListener(e.target.parentElement.id);
-});});
+      buttonEventListener(e.target.parentElement.id);
+    });
+  });
 };
 
 export default displayList;

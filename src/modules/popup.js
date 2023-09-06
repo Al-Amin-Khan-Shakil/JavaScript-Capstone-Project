@@ -1,7 +1,6 @@
-
-import {addcomment,fetchcomment} from './commet.js'
+import { addcomment, fetchcomment } from './commet.js';
 //* ----------------API-Fetch Function-----------//
-  
+
 const overlay = document.querySelector('#popup');
 function createModal(item) {
   const sampleTemplateModal = `
@@ -35,57 +34,56 @@ function createModal(item) {
 }
 
 function openModal(modal) {
-    if (modal == null) return;
-    modal.classList.add('active');
-    overlay.classList.add('active');
-  }
-  
-  function closeModal(modal) {
-    if (modal == null) return;
-    modal.classList.remove('active');
-    overlay.classList.remove('active');
-  }
-   const buttonEventListener= async (id) => {
-     try {
-         const res = await fetch(`https://api.tvmaze.com/shows/1/episodebynumber?season=1&number=${id}`);
-          if (res.status !== 200) throw new Error('Error fetching data');
-            const data = await res.json();
-            const modal = createModal(data);
-            const element = document.createElement('div');
-            element.innerHTML = modal;
-            element.classList.add('modal');
-            const addElement = document.getElementById('popup');
-            addElement.after(element);
-            openModal(element);
-            fetchcomment(id);
-           const addCommet=document.querySelectorAll('.add-commet');
-           addCommet.forEach((button) => {
-            button.addEventListener('click', (e) => {
-              e.preventDefault();
-               const username = document.querySelector('.username').value;
-                const comment = document.querySelector('.message').value;
-                const itemid=e.target.id;
-                addcomment( itemid, username, comment).then((res) => {
-                if (res.ok) {
-                  fetchcomment(id);
-                  document.querySelector('form').reset();
-                }
-                });
-              });   
-});
+  if (modal == null) return;
+  modal.classList.add('active');
+  overlay.classList.add('active');
+}
 
-      const closePopButtons = document.querySelectorAll('.data-close-button');
-      closePopButtons.forEach((button) => {
-        button.addEventListener('click', () => {
-          const modal = button.closest('.modal');
-          closeModal(modal);
+function closeModal(modal) {
+  if (modal == null) return;
+  modal.classList.remove('active');
+  overlay.classList.remove('active');
+}
+const buttonEventListener = async (id) => {
+  try {
+    const res = await fetch(`https://api.tvmaze.com/shows/1/episodebynumber?season=1&number=${id}`);
+    if (res.status !== 200) throw new Error('Error fetching data');
+    const data = await res.json();
+    const modal = createModal(data);
+    const element = document.createElement('div');
+    element.innerHTML = modal;
+    element.classList.add('modal');
+    const addElement = document.getElementById('popup');
+    addElement.after(element);
+    openModal(element);
+    fetchcomment(id);
+    const addCommet = document.querySelectorAll('.add-commet');
+    addCommet.forEach((button) => {
+      button.addEventListener('click', (e) => {
+        e.preventDefault();
+        const username = document.querySelector('.username').value;
+        const comment = document.querySelector('.message').value;
+        const itemid = e.target.id;
+        addcomment(itemid, username, comment).then((res) => {
+          if (res.ok) {
+            fetchcomment(id);
+            document.querySelector('form').reset();
+          }
         });
       });
-   } 
-    catch (err) {
-            return err;
-   }
+    });
+
+    const closePopButtons = document.querySelectorAll('.data-close-button');
+    closePopButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        const modal = button.closest('.modal');
+        closeModal(modal);
+      });
+    });
+    return res;
+  } catch (err) {
+    return err;
+  }
 };
- 
+
 export default buttonEventListener;
-  
