@@ -1,5 +1,5 @@
 import buttonEventListener from './popup.js';
-import { getLike } from './Likes.js';
+import { getLike, addLike } from './Likes.js';
 
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
@@ -52,13 +52,21 @@ const displayList = async () => {
   });
   const listItems = contentContainer.querySelectorAll('li');
   const menuList = document.querySelectorAll('.menu-list');
+  const likeEle = document.querySelectorAll('.like');
   const openPopButtons = document.querySelectorAll('.comment-button');
   const listCounter = document.createElement('span');
   listCounter.textContent = `(${listItems.length})`;
   menuList[0].appendChild(listCounter);
+
   openPopButtons.forEach((button) => {
     button.addEventListener('click', (e) => {
       buttonEventListener(e.target.parentElement.id);
+    });
+  });
+
+  likeEle.forEach((button) => {
+    button.addEventListener('click', (e) => {
+      addLike(e.target.parentElement.parentElement.id);
     });
   });
 };

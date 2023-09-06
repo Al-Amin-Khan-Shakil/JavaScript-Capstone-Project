@@ -24,9 +24,6 @@ const getLike = async (id) => {
 
   const response = await fetch(scoreURL);
   const likesdata = await response.json();
-
-
-
-}
+};
 
 export { addLike, getLike };
