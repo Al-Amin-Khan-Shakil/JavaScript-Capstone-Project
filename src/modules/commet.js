@@ -1,9 +1,8 @@
-const apiId = 'Bz8sde1lr8WmKzCrHh97';
-const url = `https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/${apiId}/comments`;
+import { commentApi } from './apiLinks.js';
 
 //* ----------------comment API-Fetch Function-----------//
 const commentData = async (itemId) => {
-  const res = await fetch(`${url}?item_id=${itemId}`);
+  const res = await fetch(`${commentApi}?item_id=${itemId}`);
   if (!res.ok) throw new Error('Cannot get comment for id ', itemId);
   const data = await res.json();
   return data;
@@ -31,7 +30,7 @@ const fetchcomment = async (itemId) => {
 // *------------------Score AddFunction---------------------//
 const addcomment = async (id, userName, comment) => {
   try {
-    const res = await fetch(url,
+    const res = await fetch(commentApi,
       {
         method: 'POST',
         headers: {

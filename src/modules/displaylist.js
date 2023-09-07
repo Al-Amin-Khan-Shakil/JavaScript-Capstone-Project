@@ -1,11 +1,11 @@
 import buttonEventListener from './popup.js';
 import { addLike } from './Likes.js';
+import { mainApi } from './apiLinks.js';
 
 const displayList = async () => {
   const contentContainer = document.getElementById('content-container');
-  const sourceURL = 'https://api.tvmaze.com/seasons/1/episodes';
 
-  const response = await fetch(sourceURL);
+  const response = await fetch(mainApi);
   const episodeData = await response.json();
 
   episodeData.forEach((episode) => {
@@ -75,7 +75,6 @@ const displayList = async () => {
       if (e.target.classList.contains('like')) {
         const res = await addLike(likeID);
         const value = parseInt(likeCount.textContent, 10);
-        //  e.target.style.color = '#f13f27';
         e.target.classList.add('like2');
         e.target.classList.remove('like');
         if (res.status === 201) {

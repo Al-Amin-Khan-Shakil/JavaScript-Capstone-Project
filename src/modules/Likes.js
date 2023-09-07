@@ -1,8 +1,8 @@
-const addLike = async (index) => {
-  const scoreURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/hHoxKTRKINp4PN8g78ys/likes';
+import { likeApi } from './apiLinks.js';
 
+const addLike = async (index) => {
   try {
-    const response = await fetch(scoreURL, {
+    const response = await fetch(likeApi, {
       method: 'POST',
       headers: {
         'content-Type': 'application/json',
@@ -20,9 +20,7 @@ const addLike = async (index) => {
 
 const getLike = async () => {
   try {
-    const scoreURL = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/hHoxKTRKINp4PN8g78ys/likes';
-
-    const response = await fetch(scoreURL);
+    const response = await fetch(likeApi);
     const likesdata = await response.json();
 
     const likeElements = document.querySelectorAll('.like');
