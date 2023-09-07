@@ -52,12 +52,6 @@ const displayList = async () => {
     commentBTN.type = 'button';
     list.appendChild(commentBTN);
 
-    const reservationsBTN = document.createElement('button');
-    reservationsBTN.classList.add('reservations-button');
-    reservationsBTN.textContent = 'Reservations';
-    // reservationsBTN.id = episode.id;
-    list.appendChild(reservationsBTN);
-
     contentContainer.appendChild(list);
   });
   const listItems = contentContainer.querySelectorAll('li');

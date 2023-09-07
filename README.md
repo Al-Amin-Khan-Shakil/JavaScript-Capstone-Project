@@ -157,6 +157,11 @@ You can deploy this project using:
 - Twitter: [Al Amin Khan Shakil](https://https://twitter.com/AlAminKhan85004)
 - LinkedIn: [Al Amin Khan Shakil](https://https://www.linkedin.com/in/al-amin-khan-shakil-5a3b29252/)
 
+👤 **AishaAlsewi**
+
+- GitHub: [@githubhandle](https://github.com/AlselwiAisha)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/aisha-alselwi-53a361270/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->

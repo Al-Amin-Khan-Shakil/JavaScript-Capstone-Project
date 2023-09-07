@@ -182,7 +182,6 @@ body {
 }
 
 .comment-button,
-.reservations-button,
 .btn {
   font-weight: 600;
   font-size: 1rem;
@@ -271,7 +270,7 @@ body {
 
 .comment-list {
   margin: 0.3rem;
-  height: 20vh;
+  max-height: 20vh;
   overflow-y: auto;
 }
 
