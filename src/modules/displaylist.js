@@ -52,12 +52,6 @@ const displayList = async () => {
     commentBTN.type = 'button';
     list.appendChild(commentBTN);
 
-    const reservationsBTN = document.createElement('button');
-    reservationsBTN.classList.add('reservations-button');
-    reservationsBTN.textContent = 'Reservations';
-    // reservationsBTN.id = episode.id;
-    list.appendChild(reservationsBTN);
-
     contentContainer.appendChild(list);
   });
   const listItems = contentContainer.querySelectorAll('li');
@@ -78,7 +72,6 @@ const displayList = async () => {
     button.addEventListener('click', async (e) => {
       const likeID = e.target.id;
       const likeCount = e.target.nextElementSibling;
-      console.log();
       if (e.target.classList.contains('like')) {
         const res = await addLike(likeID);
         const value = parseInt(likeCount.textContent, 10);
