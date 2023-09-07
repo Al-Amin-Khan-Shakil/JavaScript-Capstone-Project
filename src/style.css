@@ -169,6 +169,12 @@ body {
   cursor: pointer;
 }
 
+.like2 {
+  color: #f13f27;;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
 .like-count {
   color: #f13f27;
   font-weight: 600;
