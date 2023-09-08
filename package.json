@@ -1,5 +1,5 @@
 {
-  "name": "JavaScriptGroupCapstone",
+  "name": "javascript-capstone-project",
   "jest": {
     "resetMocks": false,
     "testEnvironment": "jsdom",
@@ -10,7 +10,7 @@
   "version": "1.0.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/AlselwiAisha/JavaScriptGroupCapstone.git"
+    "url": "git+https://github.com/Al-Amin-Khan-Shakil/JavaScript-Capstone-Project.git"
   },
   "description": "",
   "private": true,
